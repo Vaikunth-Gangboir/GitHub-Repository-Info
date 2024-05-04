@@ -30,13 +30,13 @@ function Landing() {
         <img src={GitIMG} className=" mb-3 w-[30%]" alt="Company Logo" />
         <h1 className="mb-6  text-3xl font-bold">GitHub Repository Info</h1>
         <form
-          className="w-full   text-center"
+          className="w-full text-center"
           onSubmit={(e) => {
             e.preventDefault();
             getUser();
           }}
         >
-          <div className="mb-3 flex max-w-sm flex-col gap-2 px-12 text-lg">
+          <div className="mb-3 flex max-w-sm flex-col gap-2  text-lg">
             <label htmlFor="userId" className="font-semibold">
               Enter Github Username
             </label>
@@ -45,7 +45,7 @@ function Landing() {
               id="userId"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="inline-block w-full  rounded-lg border-2 border-gray-400 px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="inline-block w-full max-w-md  rounded-lg border-2 border-gray-400 px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
