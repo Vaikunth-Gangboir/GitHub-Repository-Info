@@ -36,7 +36,8 @@ function History() {
       <div className="px-8 pt-4">
         <ul className="rounded-lg border-[1px] border-gray-300 ">
           <li className="grid grid-cols-2 items-center  border-b-[1px]  border-gray-200 bg-gray-100 p-4">
-            <div className="flex items-center gap-2">
+            <p className="text-xl font-bold">History</p>
+            <div className="flex items-center gap-2 justify-self-end">
               <img
                 src={userData.avatar_url}
                 alt="User Image"
@@ -54,8 +55,8 @@ function History() {
                 key={commit.sha}
                 className=" flex items-center gap-2  border-b-[1px]  border-gray-200 p-4"
               >
-                <div className="text-lg font-bold">{i + 1}.</div>
-                <p className="text-lg font-bold">{commit.commit.message}</p>
+                <div className="text-lg font-semibold">{i + 1}.</div>
+                <p className="text-lg font-semibold">{commit.commit.message}</p>
               </li>
             ))}
         </ul>
