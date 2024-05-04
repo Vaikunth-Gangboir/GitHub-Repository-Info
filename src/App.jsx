@@ -1,12 +1,19 @@
+// React Router
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+
+// Context
+import { OctokitProvider } from './Context/OctokitContext';
+
+// Pages
 import PageNotFound from './Pages/PageNotFound';
 import Landing from './Pages/Landing';
 import Repository from './Pages/Repository';
 import History from './Pages/History';
+
+// Components
 import ProtectedRoute from './ProtecredRoute/ProtectedRoute';
 import RepositoryList from './Components/RepositoryList';
 import RepositoryDetail from './Components/RepositoryDetail';
-import { OctokitProvider } from './Context/OctokitContext';
 
 function App() {
   return (

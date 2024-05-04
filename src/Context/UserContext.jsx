@@ -1,4 +1,7 @@
+// Context and State
 import { createContext, useContext, useState } from 'react';
+
+// Context
 import { useOctokitContext } from './OctokitContext';
 
 const UserContext = createContext();

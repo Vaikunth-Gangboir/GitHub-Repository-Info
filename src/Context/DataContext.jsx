@@ -1,6 +1,11 @@
-import { createContext, useContext, useState } from 'react';
+// React Router
 import { useParams } from 'react-router-dom';
+
+// Context
 import { useOctokitContext } from './OctokitContext';
+
+// Context and State
+import { createContext, useContext, useState } from 'react';
 
 const DataContext = createContext();
 

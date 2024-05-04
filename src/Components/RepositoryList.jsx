@@ -1,7 +1,12 @@
+// Context
+import { useUserContext } from '../Context/UserContext';
+
+// State
 import { useEffect } from 'react';
+
+// COmponents
 import Header from './Header';
 import Repo from './Repo';
-import { useUserContext } from '../Context/UserContext';
 
 function RepositoryList() {
   const { getRepoList, repos, isLoading, error } = useUserContext();

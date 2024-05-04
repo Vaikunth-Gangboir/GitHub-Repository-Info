@@ -1,18 +1,40 @@
-import { useEffect, useRef } from 'react';
+// React Router
 import { Link, useParams } from 'react-router-dom';
-import Header from './Header';
-import Content from './Content';
 
+// Context
 import { useDataContext } from '../Context/DataContext';
 import { useOctokitContext } from '../Context/OctokitContext';
 
+// State
+import { useEffect, useRef } from 'react';
+
+// Components
+import Header from './Header';
+import Content from './Content';
+
+// Icons
+import { IoReturnDownBack } from 'react-icons/io5';
+import { BsClockHistory } from 'react-icons/bs';
+
 function RepositoryDetail() {
-  const { isLoading, error, contents, commits, getRepoDetails } =
-    useDataContext();
   const { name } = useParams();
   const { userData } = useOctokitContext();
-
+  const { isLoading, error, contents, commits, getRepoDetails } =
+    useDataContext();
   const pathArr = useRef([]);
+
+  const dir = contents
+    .filter((item) => item.type === 'dir')
+    .sort((a, b) => {
+      a - b;
+    });
+  const file = contents
+    .filter((item) => item.type === 'file')
+    .sort((a, b) => {
+      a - b;
+    });
+
+  const sortedContent = [...dir, ...file];
 
   useEffect(() => {
     getRepoDetails();
@@ -43,9 +65,9 @@ function RepositoryDetail() {
               </div>
               <Link
                 to={`/repos/history/${name}`}
-                className="justify-self-end rounded-full border-2 border-gray-300 px-3 py-1 text-base font-semibold"
+                className="flex items-center gap-2 justify-self-end text-base font-bold"
               >
-                History
+                <BsClockHistory size={20} /> {commits.length} Commits
               </Link>
             </li>
             {pathArr.current.length > 0 && (
@@ -72,14 +94,15 @@ function RepositoryDetail() {
                   >
                     <path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path>
                   </svg>
-                  <p className="text-lg font-medium">...</p>
+                  <p className="text-lg font-medium">
+                    <IoReturnDownBack size={20} />
+                  </p>
                 </div>
               </li>
             )}
-            {contents.map((item, i) => (
+            {sortedContent.map((item) => (
               <Content
                 item={item}
-                commits={commits[i]}
                 key={item.sha}
                 getRepoDetails={getRepoDetails}
                 pathArr={pathArr}

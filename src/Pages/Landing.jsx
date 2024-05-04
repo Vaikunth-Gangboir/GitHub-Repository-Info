@@ -1,7 +1,14 @@
+// React Router
 import { useNavigate } from 'react-router-dom';
-import GitIMG from '../assets/github-mark.svg';
-import { useState } from 'react';
+
+// Context
 import { useOctokitContext } from '../Context/OctokitContext';
+
+// State
+import { useState } from 'react';
+
+// Assets
+import GitIMG from '../assets/github-mark.svg';
 
 function Landing() {
   const [username, setUsername] = useState('');

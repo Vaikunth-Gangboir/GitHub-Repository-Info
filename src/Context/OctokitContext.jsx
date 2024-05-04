@@ -1,5 +1,10 @@
+// Octokit
 import { Octokit } from 'octokit';
+
+// Context
 import { createContext, useContext } from 'react';
+
+// Statr
 import { useState } from 'react';
 
 const OctokitContext = createContext('');

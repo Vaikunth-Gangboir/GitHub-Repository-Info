@@ -1,4 +1,7 @@
+// React Router
 import { Navigate } from 'react-router-dom';
+
+// Context
 import { useOctokitContext } from '../Context/OctokitContext';
 
 function ProtectedRoute({ children }) {

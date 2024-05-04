@@ -1,6 +1,10 @@
+// Context
 import { useDataContext } from '../Context/DataContext';
 
-function Content({ item, commits, pathArr }) {
+// Icon
+import { PiDownloadSimple } from 'react-icons/pi';
+
+function Content({ item, pathArr }) {
   const { name, path, type, download_url } = item;
   const { getRepoDetails } = useDataContext();
 
@@ -21,7 +25,7 @@ function Content({ item, commits, pathArr }) {
   }
 
   return (
-    <li className="grid grid-cols-2 items-center border-b-[1px] border-gray-300 p-4">
+    <li className="grid items-center border-b-[1px] border-gray-300 p-4">
       <div>
         {type === 'dir' && (
           <div
@@ -49,7 +53,7 @@ function Content({ item, commits, pathArr }) {
         )}
         {type === 'file' && (
           <a
-            className="flex cursor-pointer items-center gap-2"
+            className="flex cursor-pointer items-center justify-between gap-2"
             onClick={downloadFile}
           >
             <svg
@@ -65,10 +69,10 @@ function Content({ item, commits, pathArr }) {
               <path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path>
             </svg>
             <p className="text-lg font-medium">{name}</p>
+            <PiDownloadSimple size={20} className="ml-auto" />
           </a>
         )}
       </div>
-      <p>{commits?.commit.message}</p>
     </li>
   );
 }

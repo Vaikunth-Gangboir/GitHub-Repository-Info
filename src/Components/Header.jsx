@@ -1,5 +1,13 @@
+// React Router
 import { useNavigate } from 'react-router-dom';
+
+// Context
 import { useOctokitContext } from '../Context/OctokitContext';
+
+// Icons
+import { GiExitDoor } from 'react-icons/gi';
+
+// Assets
 import LogoIMG from '../assets/GitHub_Logo.png';
 
 function Header() {
@@ -18,10 +26,11 @@ function Header() {
         <p className="text-lg font-bold">{userData.login}</p>
       </div>
       <button
-        className="rounded-full border-[2px] border-[#29903B] px-4 py-1 font-semibold transition-all hover:bg-[#29903B] hover:text-white"
+        className="flex items-center gap-2 rounded-lg border-2 border-gray-300 px-4 py-1 font-semibold transition-all hover:bg-[#29903B] hover:text-white"
         onClick={() => navigate('/')}
       >
-        Exit
+        <span>Exit</span>
+        <GiExitDoor size={20} />
       </button>
     </header>
   );
