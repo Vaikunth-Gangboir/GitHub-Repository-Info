@@ -14,6 +14,7 @@ This web application allows you to explore GitHub repositories of any user, navi
 + **Octokit.js:** JavaScript client for the GitHub API, used for Interaction with repository data.
 + **Tailwind CSS:** Utility-first CSS framework for styling.
 + **React Router:** Library for routing in a React application.
++ **React Icons:** For Icons
 
 ## Getting Started
 **Clone Repository:** Clone this repository to your local machine using git clone.
